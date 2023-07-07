@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <hr>
+    <div class="main">
+        <form method="POST" enctype="multipart/form-data"   >
+            {% csrf_token %}
+            <h3>Post's Title</h3>
+            <p>
+                <input placeholder="Post name" type="text" name="title" style="width: 50%;" value="{{ post.title }}">
+            </p>
+            <hr>
+            <h3>Post's Description</h3>
+            <p>
+                <input placeholder="Post description" type="text" name="content" style="height:160px; width: 50%;" value="{{ post.content }}">
+            </p>
+            <hr>
+            <h3>Post's image</h3>
+            <p>
+                <input placeholder="Add image" type="file" name="img" style="width: 300px;height: 60px;" value="{{ post.img.url }}">
+            </p>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit" value="upload" style="width: 300px;">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

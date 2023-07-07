@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="main">
+        {% for i in post_likers %}
+            <a href="{% url 'user-posts' i %}" style="font-size: 25px;">{{ i }}</a>
+            <br>
+
+        {% endfor %}
+        <a href="{% url 'blog-home' %}"><button class="btn btn-outline-info">Home</button></a>
+    </div>
+
+
+{% endblock %}

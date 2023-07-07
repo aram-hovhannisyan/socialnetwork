@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <hr>
+    <div class="main">
+        <h3>Your Comment Here</h3>
+        <hr>
+        <form method="post" style="margin: auto;">
+            {% csrf_token %}
+            <input calss="form__input" type="text" name="content" style="width: 60%; min-height: 200px;font-size: 18px;">
+            <br>
+            <br>
+            <hr>
+            <button class="btn btn-outline-info" type="submit">Add Your Comment</button>
+        </form>        
+        
+    </div>
+
+
+
+{% endblock %}

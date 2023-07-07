@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="main" style="height: auto;">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p>
+            <h2>Username</h2>
+            <input class="form__input" type="text" placeholder="{{ user.username }}" name="username" value="{{ user.username }}">
+          </p>
+          <p>
+            <h2>Email</h2>
+            <input class="form__input" type="email" placeholder="{{ user.email }}" name="email" value="{{ user.email }}">
+          </p>
+          <div class="form-group">
+            <h2>Profile Image</h2>
+            <input type="file" name="image">
+          </div>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+      <hr style="border: 1px solid black;">
+      <a href="{% url 'password_reset'%}"><button class="btn btn-outline-info">Change Password</button></a>
+
+    </div>
+{% endblock content %}
